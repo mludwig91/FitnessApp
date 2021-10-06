@@ -196,39 +196,13 @@ img {
 .py {
   padding: 1rem;
 }
-/* .form input[type='text'],
-.form input[type='email'],
-.form input[type='password'],
-.form input[type='date'],
-.form select,
-.form textarea {
-  display: block;
-  width: 100%;
-  padding: 0.4rem;
-  font-size: 1.2rem;
-  border: 1px solid #ccc;
-} */
-/* 
-.form input[type='submit'],
-button {
-  font: inherit;
-}
-
-.table th,
-.table td {
-  padding: 1rem;
-  text-align: left;
-}
-
-.table th {
-  background: var(--light-color);
-} */
 
 /* Navbar */
 .navbar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: left;
+  align-items: left;
+  text-align: left;
   padding: 0.7rem 5rem;
   position: fixed;
   z-index: 1;
@@ -242,8 +216,14 @@ button {
   display: flex;
 }
 
+.navbar li {
+  display: flex;
+  text-align: right;
+}
+
 .navbar a {
-  color: #000000;
+  color: #ffffff;
+  text-align: right;
   padding: 0.45rem;
   margin: 0 0.25rem;
 }
@@ -296,23 +276,4 @@ button {
 
 .lead {
   font-size: 1rem;
-}
-
-/* Navbar */
-.navbar {
-  display: block;
-  text-align: center;
-}
-
-.navbar ul {
-  text-align: center;
-  justify-content: center;
-}
-
-.navbar h1 {
-  margin-bottom: 1rem;
-}
-
-.navbar .welcome {
-  display: none;
 }

@@ -1,17 +1,22 @@
 import React from 'react'
 
-export const Navbar = () => {
+export const Visitors = () => {
     return (
-        <nav className="navbar bg-dark">
-      <h1>
-        <a href="index.html"><i className="fas fa-code"></i></a>
-      </h1>
-      <ul>
-        <li><a href="register.html">Register</a></li>
-        <li><a href="login.html">Login</a></li>
-      </ul>
-    </nav>
+      <section class="landing">
+      <div className="dark-overlay">
+        <div className="landing-inner">
+          <h1 className="x-large">Fitness & Wellness Forever</h1>
+          <p className="lead">
+            The journey to a better life starts here. 
+          </p>
+          <div class="buttons">
+            <a href="register.html" className="btn btn-primary">Sign Up</a>
+            <a href="login.html" className="btn btn-light">Login</a>
+          </div>
+        </div>
+      </div>
+    </section>
     )
 }
 
-export default Navbar;
+export default Visitors;
