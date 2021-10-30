@@ -45,21 +45,11 @@ img {
 }
 
 /* Text Styles*/
-.x-large {
-  font-size: 4rem;
-  line-height: 1.2;
-  margin-bottom: 1rem;
-}
-
-.large {
+.loginHeader {
   font-size: 3rem;
   line-height: 1.2;
   margin-bottom: 1rem;
-}
-
-.lead {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  font-family: 'Lucida Sans';
 }
 
 .text-center {
@@ -76,16 +66,17 @@ img {
 
 .btn {
   display: inline-block;
-  background: var(--light-color);
+  background: #fff;
   color: #333;
   padding: 0.4rem 1.3rem;
+  margin-top: 2em;
   font-size: 1rem;
   border: none;
   cursor: pointer;
   margin-right: 0.5rem;
   transition: opacity 0.2s ease-in;
   outline: none;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 .badge {
@@ -199,33 +190,23 @@ img {
 
 /* Navbar */
 .navbar {
-  display: flex;
-  justify-content: left;
-  align-items: left;
-  text-align: left;
-  padding: 0.7rem 5rem;
+  display: inline;
+  padding: 0.7rem 1.5rem;
   position: fixed;
   z-index: 1;
   width: 100%;
   top: 0;
   border-bottom: solid 1px var(--primary-color);
   opacity: 0.9;
+  color: white;
 }
 
-.navbar ul {
-  display: flex;
+.navbar Link {
+  color: white;
 }
 
 .navbar li {
-  display: flex;
-  text-align: right;
-}
-
-.navbar a {
-  color: #ffffff;
-  text-align: right;
-  padding: 0.45rem;
-  margin: 0 0.25rem;
+  color: white;
 }
 
 .navbar a:hover {
@@ -270,10 +251,22 @@ img {
   font-size: 3rem;
 }
 
-.large {
-  font-size: 2rem;
+.login {
+  width: auto;
+  max-width: 75%;
+  padding: 1.5em;
+  border-radius: 10px;
+  background-color: #f2f2f2;
 }
 
-.lead {
-  font-size: 1rem;
+.login .loginText {
+  font-size: x-large;
+  font-family: 'Lucida Sans';
+}
+
+.login .loginInput {
+  font-size: medium;
+  padding: 0.5em;
+  width: 50%;
+  border-radius: 0.6em;
 }
