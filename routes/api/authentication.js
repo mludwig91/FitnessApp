@@ -1,18 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const auth = require('../../middleware/auth');
-const User = require('../../models/User');
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcryptjs');
-const {check, validationResult} = require('express-validator');
 const config = require('config');
-
-
-//app.get, app.post specifies what to do when these requests are made
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const User = require('../../models/User');
+const auth = require('../../middleware/auth');
+const {check, validationResult} = require('express-validator');
 
 //@route        GET api/auth
 //@desciption   Retrieve user
-//access level  Public
+//access level  Private
 router.get('/', auth, async (req,res) => {
     try{
         //.select('-password') leaves out password for security purposes

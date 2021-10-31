@@ -8,7 +8,7 @@ const { exists } = require('../../models/Profile');
 
 //@route        GET api/profile/user
 //@desciption   Fetch current token profile
-//access level  Public
+//access level  Private
 router.get('/user', auth, async (req,res) => {
     try {
         const profile = await Profile.findOne({ user: req.user.id }).populate('user','name');
@@ -27,8 +27,8 @@ router.get('/user', auth, async (req,res) => {
 
 //@route        POST api/profile/user
 //@desciption   Create or update profile
-//access level  Public
-router.post('/', auth,
+//access level  Private
+router.post('/user', auth,
 async(req,res) => {
 
     //pull variables from body using object destructuring 
@@ -108,7 +108,7 @@ router.get('/user/:user_id', async (req,res) => {
 //@route        Delete api/profile/user/:user_id
 //@desciption   Delete profile, user & posts
 //access level  Private
-router.delete('/', auth, async (req,res) => {
+router.delete('/user/:user_id', auth, async (req,res) => {
     try {
         //removes profile
         await Profile.findOneAndRemove({ user: req.user._id});

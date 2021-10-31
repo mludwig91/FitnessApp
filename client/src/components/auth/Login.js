@@ -6,7 +6,7 @@ import useRegisterForm from './useRegisterForm'
   merge states together. can use multiple states or object
   spread operator.*/
 const Login = () => {
-    const {userData, onTextChange} = useRegisterForm();
+  const {onTextChange, userData, onSubmit} = useRegisterForm();
 
     return (
       <Fragment>
@@ -14,7 +14,7 @@ const Login = () => {
       <div className="loginHeader">Login</div>
 
       {/*Controlled component sign up form */}
-      <form onSubmit={e => onSubmit(e,false)}>
+      <form onSubmit={e => onSubmit(e)}>
       <label className="loginText">Email: </label> <div></div>
       <input  className="loginInput" type="email" required name="email" value={userData.email} onChange={e => onTextChange(e)}/>
       <div></div>

@@ -7,7 +7,7 @@ React calls Registration component with
 useState props.
 */
 const Registration = () => {
-  const {onTextChange, userData, onSubmit, validate} = useRegisterForm();
+  const {onTextChange, userData, onSubmit} = useRegisterForm();
 
     return(
       <Fragment>
@@ -16,7 +16,7 @@ const Registration = () => {
       <div className="loginHeader">Sign Up</div>
 
       {/*Controlled component sign up form */}
-      <form onSubmit={e => onSubmit(e,true)}>
+      <form onSubmit={e => onSubmit(e)}>
 
         <label className="loginText">First Name:</label><div></div> 
         <input 

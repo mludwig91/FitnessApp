@@ -1,3 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://MindyourNeck:huRruz-6kobke-vypsuw@mycluster.g46be.mongodb.net/MyCluster?retryWrites=true&w=majority"
+    "mongoURI": "mongodb+srv://MindyourNeck:huRruz-6kobke-vypsuw@mycluster.g46be.mongodb.net/MyCluster?retryWrites=true&w=majority",
+    "jwtSecret": "5fb2b76f8444e9b1569e523b4576cbcd80b022dae4b052a209f1fd73dec29b58b879ff752e41de6e561fc24d843820eea1a99000392f4ae38e4c7d375bfa6a69"
 }

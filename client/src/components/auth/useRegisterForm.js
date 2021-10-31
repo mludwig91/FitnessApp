@@ -26,37 +26,29 @@ import { useState, useEffect } from 'react'
    setuserData({ ...userData, [event.target.name]: event.target.value })
  }
 
- function validate(userData, isRegister){
-   let errors = {};
-
-  if(!userData.email){
-    errors.email = "Email Required";
-  }else if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(userData.email)){
-    errors.email = "Email address invalid";
-  }
-  if(!userData.password){
-    errors.password = "Password is required";
-  }else if(!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,32}$/){
-    errors.password = "Password must be atleast 8 characters and include one uppercase, one lowercase, and a special character";
-  }
-
-
-  if(isRegister){   
-    if(!userData.firstName.trim() || !userData.lastName.trim()){
-       errors.username = "First and last name are required";
-    }
-    if(!userData.password2){
-       errors.password2 = "Confirmation password is required";
-    }else if(userData.password !== userData.password2){
-      errors.password2 = "Passwords do not match";
-    }
-  }
-   return errors;
-  }
-
- const onSubmit = (e,isRegister) => {
+ const onSubmit = async (e) => {
    e.preventDefault();
-   setErrors(validate(userData,isRegister))
+   
+   if(userData.password !== userData.password2){
+     console.log("PASS")
+   }
+   const newUser ={
+     name,
+     email,
+     password
+   }
+   try {
+     const config = {
+       header : {
+         'Content-Type': 'application/json'
+       }
+     }
+     const body = JSON.stringify(newUser);
+     res = await axios.post('/api/users', body, config);
+     console.log(res.data)
+   } catch (error) {
+     console.error(err.response.data)
+   }
    }
  
 

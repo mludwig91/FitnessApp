@@ -49,13 +49,10 @@ router.post('/',[
             });
 
             //encrypt password using bcrypt
-            const salt = await bcrypt.genSalt(10);
-            
+            const salt = await bcrypt.genSalt(10);            
             user.password = await bcrypt.hash(password, salt);
-            
             await user.save();
-        
-        
+
             //create payload
             const payload = {
                 user: {

@@ -1,7 +1,6 @@
 const jwt = require('jsonwebtoken');
 const config = require('config');
 
-//exporting middleware functions has access to request and response objects
 module.exports = function(req, res, next){
 
     //Grab token from request
@@ -9,7 +8,7 @@ module.exports = function(req, res, next){
     //if no token
     if(!token){
         //401 no auth response
-        return res.status(401).json({ msg: 'No token, authorization denied'} );
+        return res.status(401);
     }
 
     try{

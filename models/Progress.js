@@ -60,14 +60,12 @@ const ProgressSchema = new mongoose.Schema({
         Max: 50
     },
 
-    //Each diff multiplied by importance level + Intensity over 7
     weeklyProgressScore: {
         type: Number,
         Min: 0,
         Max: 100
     },
 
-    //Each diff multiplied by importance level + Intensity
     overallProgressScore: {
         type: Number,
         Min: 0,
