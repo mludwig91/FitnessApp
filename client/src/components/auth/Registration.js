@@ -1,6 +1,7 @@
 //useState allows for state without creating class
-import React, {Fragment, useState} from 'react'
+import React, {Fragment} from 'react'
 import useRegisterForm from './useRegisterForm'
+// const axios = require('axios')
 /*Registration controlled component.
 Components must start with upper casing.
 React calls Registration component with 
@@ -16,7 +17,7 @@ const Registration = () => {
       <div className="loginHeader">Sign Up</div>
 
       {/*Controlled component sign up form */}
-      <form onSubmit={e => onSubmit(e)}>
+      <form className ="form" onSubmit={e => onSubmit(e)}>
 
         <label className="loginText">First Name:</label><div></div> 
         <input 
@@ -48,7 +49,7 @@ const Registration = () => {
         />
         <div></div>
 
-        <label className="loginText">Username: </label> <div></div>
+        <label className="loginText">Username: </label><div></div>
         <input  
         className="loginInput" required 
         type="username" 
@@ -77,9 +78,9 @@ const Registration = () => {
         />
         <div></div>
 
-        <button className="btn">Confirm</button>
+        <input type="submit" class="btn" value="Register"/>        
         <div></div>
-        <a href="">Already have an account?</a>
+        {/* already have account? */}
         </form>
       </section>
 

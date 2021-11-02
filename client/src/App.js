@@ -5,10 +5,13 @@ import Navbar from './components/layout/Navbar'
 import Visitors from './components/layout/Visitors';
 import Login from './components/auth/Login';
 import Registration from './components/auth/Registration';
+import { Provider } from 'react-redux';
+import myStore from './store';
 
 //<Fragment> allows you to return multiple Components
 const App = () =>{
 return (
+    <Provider store={myStore}>
     <Router> 
         <Fragment>
         <Navbar/>
@@ -21,6 +24,7 @@ return (
             </section>
         </Fragment>
     </Router>
+    </Provider>
     )
 }
 export default App;

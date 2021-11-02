@@ -5,18 +5,16 @@ const mongoose = require('mongoose');
 const UserSchema = new mongoose.Schema({
 
         //Basic user data
-        name: {
+        firstName: {
             type: String,
             required: true
         },
-        age: {
-            type: Number,
-            min: 12,
-            max: 100,
+        lastName: {
+            type: String,
             required: true
         },
-        gender: {
-            type: Number,
+        username: {
+            type: String,
             required: true
         },
         email: {

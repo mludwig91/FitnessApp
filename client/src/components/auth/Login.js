@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment } from 'react'
 import useRegisterForm from './useRegisterForm'
 
 /*useState hook returns array of current state and a
@@ -22,8 +22,8 @@ const Login = () => {
       <label className="loginText">Password: </label><div></div>
       <input  className="loginInput" type="password" required name="password" value={userData.password} onChange={e => onTextChange(e)}/>
       <div></div>
-      <button className="btn">Login</button>
-
+      <input type="submit" class="btn" value="Login"/>        
+        <div></div>
       </form>
       </section>
       </Fragment>

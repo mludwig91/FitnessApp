@@ -60,20 +60,18 @@ router.post('/',
                 return res.status(400).json({ errors: 'Invalid Login' });
             }
 
-            //build payload,usually just id
+            //build payload
             const payload = {
                 user: {
                     id: user.id
                 }
             };
-            
             //return jsonwebtoken
             jwt.sign(payload,config.get('jwtSecret'),
              { expiresIn: 360000 },
              (err,token) =>{
                  if (err) throw err;
                  res.json({ token });
-             
             });
             
         } catch(err){ 

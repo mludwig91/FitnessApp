@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+const axios = require('axios');
 
 /*useState hook returns array of, current state and a
   function that lets you update the state, does not
@@ -12,10 +13,7 @@ import { useState, useEffect } from 'react'
     username: "",
     password: "",
     password2: "",
-
   });
-
-  const [errors, setErrors] = useState({});
 
   /*handle dynamic text change in form.
   State component renders after each update!
@@ -30,28 +28,30 @@ import { useState, useEffect } from 'react'
    e.preventDefault();
    
    if(userData.password !== userData.password2){
-     console.log("PASS")
+     console.log("Passwords do not match")
+   } else{
+     console.log(userData)
    }
-   const newUser ={
-     name,
-     email,
-     password
+
+    //  build user object
+    const newUser = {
+     email: userData.email,
+     password: userData.password,
+     lastName: userData.lastName,
+     username: userData.username,
+     firstName: userData.firstName
+
    }
+
    try {
-     const config = {
-       header : {
-         'Content-Type': 'application/json'
-       }
-     }
-     const body = JSON.stringify(newUser);
-     res = await axios.post('/api/users', body, config);
+     //axios auto serializes object into json and set content type
+     const res = await axios.post('/api/users', newUser);
      console.log(res.data)
-   } catch (error) {
+   } catch (err) {
      console.error(err.response.data)
    }
-   }
+  };
  
-
  return {onTextChange, userData, onSubmit}
 };
 

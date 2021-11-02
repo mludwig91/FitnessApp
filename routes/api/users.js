@@ -14,11 +14,11 @@ const User = require('../../models/User');
 router.post('/',[
     
     //Name can't be empty, if so send 'Name is required' message
-    check('name', 'Name is required').not().isEmpty(),
+    check('name', 'Name is required').exists(),
     check('name', 'Name must be atleast 2 characters').isLength({ min: 2 }),
     check('email', 'Please include a valid email').isEmail(),
     //Password regex for one upper,one lower, one number, and one special character between 8 and 32 chars long 
-    check('password', 'Password must be atleast 8 characters and include one uppercase, one lowercase, and a special character').matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,32}$/, "i")
+    // check('password', 'Password must be atleast 8 characters and include one uppercase, one lowercase, and a special character').matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,32}$/, "i")
 ],
     
     async (req,res) => {
@@ -29,8 +29,8 @@ router.post('/',[
             return res.status(400).json({ errors: errors.array() });
         }
 
-        //pulls the name email and pass vars from req.body
-        const { name, age, gender, email, password } = req.body;
+        //deconstructs req.body
+        const { firstName, lastName, username, email, password } = req.body;
 
         try {
             let user = await User.findOne({ email });
@@ -39,11 +39,12 @@ router.post('/',[
             if(user){
                 return res.status(400).json({ errors: [ { msg: 'User already exists' }]});
             }
-        
+            
+            //build user structure
             user = new User({
-                name,
-                age,
-                gender,
+                firstName,
+                lastName,
+                username,
                 email,
                 password
             });
@@ -60,12 +61,12 @@ router.post('/',[
                 }
             };
 
-            //return jsonwebtoken
+            //sign users auth token
             jwt.sign(payload,config.get('jwtSecret'),
              { expiresIn: "1h" },
              (err,token) =>{
                  if (err) throw err;
-                 res.json({ token });
+                 res.json({token})
             });
             
         } catch(err){ 

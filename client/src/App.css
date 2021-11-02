@@ -1,4 +1,6 @@
 /* Global Styles */
+/* @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap'); */
+/* font-family: 'Anton', sans-serif; */
 :root {
   --primary-color: #17a2b8;
   --dark-color: #343a40;
@@ -178,14 +180,14 @@ img {
   border-bottom: solid 0.2em var(--primary-color);
 }
 
-.navbar li {
+.navbar ul li {
   display: inline-block;
   padding: 0.5em;
   color: #fff;
 }
-
 .about {
-  text-align: right;
+  margin-left: auto;
+  padding-left: ;
 }
 
 .navbar a:hover {
@@ -234,7 +236,7 @@ img {
   margin-top: 10%;
   padding: 1.5em;
   border-radius: 10px;
-  border-color: #343a40;
+  border-color: var(--primary-color);
   border-style: solid;
   background-color: #f2f2f2;
   text-align: center;
