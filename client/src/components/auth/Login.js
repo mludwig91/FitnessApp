@@ -10,6 +10,7 @@ const Login = () => {
 
     return (
       <Fragment>
+      <section className="loginOuter">
       <section className="login">
       <div className="loginHeader">Login</div>
 
@@ -26,6 +27,8 @@ const Login = () => {
         <div></div>
       </form>
       </section>
+      </section>
+
       </Fragment>
       )
 };

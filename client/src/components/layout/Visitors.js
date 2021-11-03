@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 export const Visitors = () => {
     return (
-      <section class="landing">
+      <section className="landing">
       <div className="dark-overlay">
         <div className="landing-inner">
           <h1 className="x-large">Fitness & Wellness Forever</h1>
@@ -15,7 +15,7 @@ export const Visitors = () => {
           </div>
         </div>
       </div>
-    </section>
+      </section>
     )
 }
 

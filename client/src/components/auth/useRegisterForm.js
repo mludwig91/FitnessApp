@@ -24,35 +24,35 @@ const axios = require('axios');
    setuserData({ ...userData, [event.target.name]: event.target.value })
  }
 
- const onSubmit = async (e) => {
-   e.preventDefault();
+//  const onSubmit = async (e,props) => {
+//    e.preventDefault();
    
-   if(userData.password !== userData.password2){
-     console.log("Passwords do not match")
-   } else{
-     console.log(userData)
-   }
+//    if(userData.password !== userData.password2){
+//      props.setAlert("Passwords do not match", 'danger')
+//    } else{
+//      console.log(userData)
+//    }
 
-    //  build user object
-    const newUser = {
-     email: userData.email,
-     password: userData.password,
-     lastName: userData.lastName,
-     username: userData.username,
-     firstName: userData.firstName
+//     //  build user object
+//     const newUser = {
+//      email: userData.email,
+//      password: userData.password,
+//      lastName: userData.lastName,
+//      username: userData.username,
+//      firstName: userData.firstName
 
-   }
+//    }
 
-   try {
-     //axios auto serializes object into json and set content type
-     const res = await axios.post('/api/users', newUser);
-     console.log(res.data)
-   } catch (err) {
-     console.error(err.response.data)
-   }
-  };
+//    try {
+//      //axios auto serializes object into json and set content type
+//      const res = await axios.post('/api/users', newUser);
+//      console.log(res.data)
+//    } catch (err) {
+//      console.error(err.response.data)
+//    }
+//   };
  
- return {onTextChange, userData, onSubmit}
+ return {onTextChange, userData}
 };
 
 export default useRegisterForm;

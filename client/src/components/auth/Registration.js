@@ -1,15 +1,50 @@
 //useState allows for state without creating class
-import React, {Fragment} from 'react'
-import useRegisterForm from './useRegisterForm'
+import React, {Fragment} from 'react';
+import useRegisterForm from './useRegisterForm';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import{setAlert} from '../../actions/alert';
+import { PropTypes } from 'prop-types';
+const axios = require('axios');
+
+
 // const axios = require('axios')
 /*Registration controlled component.
 Components must start with upper casing.
 React calls Registration component with 
 useState props.
 */
-const Registration = () => {
-  const {onTextChange, userData, onSubmit} = useRegisterForm();
-
+const Registration = ({ setAlert }) => {
+  const {onTextChange, userData} = useRegisterForm();
+  
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    
+    if(userData.password !== userData.password2){
+      setAlert("Passwords do not match", 'danger')
+    } else{
+      console.log(userData)
+    }
+ 
+     //  build user object
+     const newUser = {
+      email: userData.email,
+      password: userData.password,
+      lastName: userData.lastName,
+      username: userData.username,
+      firstName: userData.firstName
+ 
+    }
+ 
+    try {
+      //axios auto serializes object into json and set content type
+      const res = await axios.post('/api/users', newUser);
+      console.log(res.data)
+    } catch (err) {
+      console.error(err.response.data)
+    }
+   };
+  
     return(
       <Fragment>
       
@@ -81,6 +116,7 @@ const Registration = () => {
         <input type="submit" class="btn" value="Register"/>        
         <div></div>
         {/* already have account? */}
+        <Link to="/login"> Already have an account?</Link>
         </form>
       </section>
 
@@ -88,4 +124,9 @@ const Registration = () => {
     )
 };
 
-export default Registration;
+Registration.propTypes ={
+  setAlert: PropTypes.func.isRequired,
+};
+//connect adds redux capability for alerts. 
+//connect(state, Object with actions)
+export default connect(null, {setAlert}) (Registration);
