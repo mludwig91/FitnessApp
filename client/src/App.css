@@ -11,8 +11,8 @@
 
 * {
   box-sizing: border-box;
-  /* margin: 0; */
-  /* padding: 0; */
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -38,11 +38,10 @@ img {
 
 /* Utilities */
 .container {
-  /* max-width: 1100px;
-  margin: auto;
+  max-width: 1100px;
   overflow: hidden;
   padding: 0 2rem;
-  margin-top: 3rem; */
+  margin-top: 4rem;
 }
 
 /* Text Styles*/
@@ -59,6 +58,7 @@ img {
   color: #333;
   padding: 0.4rem 1.3rem;
   margin-top: 2em;
+  margin-bottom: 2em;
   font-size: 1rem;
   border: solid;
   border-width: 0.1em;
@@ -71,9 +71,12 @@ img {
 }
 
 .alert {
-  padding: 0.8rem;
-  margin: 1rem 0;
+  padding: 0.5rem;
+  border-radius: 0.75rem;
   opacity: 0.9;
+  margin-top: 0.5rem;
+  margin-left: 25%;
+  text-align: center;
   background: var(--light-color);
   color: #333;
 }
@@ -226,15 +229,14 @@ img {
 
 .login {
   /* max-width: 50%; */
-  padding-left: 15%;
-  padding-top: 10%;
-  padding-bottom: 1.5em;
+  margin-left: 25%;
+  margin-top: 5%;
+  /* margin-bottom: 1.5em; */
   border-radius: 10px;
   border-color: var(--primary-color);
   border-style: solid;
-  margin: 0;
   background-color: #dadada;
-  text-align: left;
+  text-align: center;
 }
 
 .login .loginText {
@@ -245,6 +247,6 @@ img {
 .login .loginInput {
   font-size: medium;
   padding: 0.5em;
-  width: 75%;
+  width: 50%;
   border-radius: 0.6em;
 }

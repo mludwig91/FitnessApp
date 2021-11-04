@@ -4,6 +4,7 @@ import useRegisterForm from './useRegisterForm';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import{setAlert} from '../../actions/alert';
+import{ register } from '../../actions/auth'
 import { PropTypes } from 'prop-types';
 const axios = require('axios');
 
@@ -14,16 +15,18 @@ Components must start with upper casing.
 React calls Registration component with 
 useState props.
 */
-const Registration = ({ setAlert }) => {
+const Registration = ({ setAlert, register }) => {
   const {onTextChange, userData} = useRegisterForm();
   
   const onSubmit = async (e) => {
     e.preventDefault();
     
+  
     if(userData.password !== userData.password2){
       setAlert("Passwords do not match", 'danger')
     } else{
-      console.log(userData)
+      
+      register({ userData });
     }
  
      //  build user object
@@ -56,7 +59,7 @@ const Registration = ({ setAlert }) => {
 
         <label className="loginText">First Name:</label><div></div> 
         <input 
-        className="loginInput" required 
+        className="loginInput" 
         type="firstName" 
         name="firstName" 
         value={userData.firstName} 
@@ -66,7 +69,7 @@ const Registration = ({ setAlert }) => {
 
         <label className="loginText">Last Name: </label><div></div>
         <input 
-        className="loginInput" required
+        className="loginInput" 
         type="lastName" 
         name="lastName" 
         value={userData.lastName} 
@@ -76,7 +79,7 @@ const Registration = ({ setAlert }) => {
 
         <label className="loginText">Email: </label><div></div>
         <input 
-        className="loginInput" required 
+        className="loginInput" 
         type="email"
         name="email" 
         value={userData.email} 
@@ -86,7 +89,7 @@ const Registration = ({ setAlert }) => {
 
         <label className="loginText">Username: </label><div></div>
         <input  
-        className="loginInput" required 
+        className="loginInput" 
         type="username" 
         name="username" 
         value={userData.username} 
@@ -96,7 +99,7 @@ const Registration = ({ setAlert }) => {
 
         <label className="loginText">Password: </label><div></div>
         <input  
-        className="loginInput" required 
+        className="loginInput" 
         type="password"
         name="password" 
         value={userData.password} 
@@ -105,7 +108,7 @@ const Registration = ({ setAlert }) => {
         <div></div>
 
         <label className="loginText">Confirm Password: </label><div></div> 
-        <input  className="loginInput" required 
+        <input  className="loginInput" 
         type="password"
         name="password2" 
         value={userData.password2} 
@@ -114,9 +117,9 @@ const Registration = ({ setAlert }) => {
         <div></div>
 
         <input type="submit" class="btn" value="Register"/>        
-        <div></div>
+        <div>Already have an account?</div>
         {/* already have account? */}
-        <Link to="/login"> Already have an account?</Link>
+        <Link to="/login"> Click here</Link>
         </form>
       </section>
 
@@ -126,7 +129,8 @@ const Registration = ({ setAlert }) => {
 
 Registration.propTypes ={
   setAlert: PropTypes.func.isRequired,
+  register: PropTypes.func.isRequired,
 };
 //connect adds redux capability for alerts. 
 //connect(state, Object with actions)
-export default connect(null, {setAlert}) (Registration);
+export default connect(null, {setAlert, register}) (Registration);

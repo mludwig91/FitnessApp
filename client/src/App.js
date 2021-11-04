@@ -18,7 +18,8 @@ return (
         <Navbar/>
             <Route exact path="/" component={Visitors}/>
             <section className="container">
-             <Alert/>   
+            <Alert/>   
+
             <Switch>
                 <Route path="/registration" component={Registration}></Route>
                 <Route path="/login" component={Login}></Route>
